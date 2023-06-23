@@ -13,7 +13,7 @@
     <artifactId>mini-bank</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>mini-bank</name>
-    <description>Laboratorio 1 modulo IV - capacitación bbva</description>
+    <description>Laboratorio 2 modulo V - capacitación bbva</description>
     <properties>
         <java.version>17</java.version>
     </properties>
