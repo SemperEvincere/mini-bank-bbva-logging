@@ -1,527 +1,527 @@
 {
-	"info": {
-		"_postman_id": "e980bca3-8e07-47fd-b1a9-900f6a0c2225",
-		"name": "Mini-Bank-BBVA",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18095139"
-	},
-	"item": [
-		{
-			"name": "Client",
-			"item": [
-				{
-					"name": "create Client",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"lastName\": \"SEIS\",\r\n    \"firstName\": \"CLIENTE\",\r\n    \"email\": \"cliente.seis@gmail.com\",\r\n    \"phone\": \"5548484656\",\r\n    \"address\": \"otra direccion\",\r\n   \"userId\" : \"e3cb4256-427b-40ff-bb9d-bb9fc46f292a\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/client/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAll Client",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW1wZXIiLCJpYXQiOjE2ODcyNjc2ODUsImV4cCI6MTY4NzM1NDA4NX0.3-reCMLcO5BgzpRhGpLItyv-rg8mX3H72FPcJ7ShmKw",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/client/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getOne Client by Id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/client/2fa8a8e2-e713-4f36-8a0b-431cbec98266",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								"2fa8a8e2-e713-4f36-8a0b-431cbec98266"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update Client",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"CLIENTE\",\r\n    \"lastName\": \"UNO\",\r\n    \"email\": \"cliente.uno@gmail.com\",\r\n    \"phone\": \"478494658\",\r\n    \"address\": \"otra direccion\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/client/883ccd1a-7076-4b85-86f0-790e1a9ebf4c",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								"883ccd1a-7076-4b85-86f0-790e1a9ebf4c"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "softDelete Client",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/client/b19930cc-3eb2-478b-a2c4-c1fdc01706e8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								"b19930cc-3eb2-478b-a2c4-c1fdc01706e8"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/client/restore/b19930cc-3eb2-478b-a2c4-c1fdc01706e8",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"client",
-								"restore",
-								"b19930cc-3eb2-478b-a2c4-c1fdc01706e8"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Account",
-			"item": [
-				{
-					"name": "create Account",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"holderId\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"currency\" : \"ARS\",\r\n    \"secondHolderId\" : \"b19930cc-3eb2-478b-a2c4-c1fdc01706e8\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/account/create",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"account",
-								"create"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "add Coholder",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"holderId\" : \"b19930cc-3eb2-478b-a2c4-c1fdc01706e8\",\r\n    \"accountId\" : \"59cba7d3-19c7-4405-b35e-e682f7f9e6f6\",    \r\n    \"currency\" : \"ARS\",\r\n    \"secondHolderId\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/account/coholder",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"account",
-								"coholder"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getOne account",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/account/15c67f5a-b352-4e22-8343-e70a8f11f677",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"account",
-								"15c67f5a-b352-4e22-8343-e70a8f11f677"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAll accounts",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/account/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"account",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "block Account",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/account/00846b48-e55c-4380-bf89-d116181bc207",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"account",
-								"00846b48-e55c-4380-bf89-d116181bc207"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Transaction",
-			"item": [
-				{
-					"name": "create transaction validation",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"DEPOSITa\",\r\n    \"idClient\" : \"eeb55a99-d245-4370-826d-d6e41f800e2e\",\r\n    \"idAccountOrigin\" : \"\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : -100.00\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/transactions/operation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								"operation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "deposit",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"DEPOSIT\",\r\n    \"idClient\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"idAccountOrigin\" : \"00846b48-e55c-4380-bf89-d116181bc207\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : 30000.00\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/transactions/operation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								"operation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "withdraw",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"WITHDRAW\",\r\n    \"idClient\" : \"8d636447-91c5-4e65-8b12-89b6fb48a5e7\",\r\n    \"idAccountOrigin\" : \"b3693118-a141-4129-9982-abe0a01187ca\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : 10000.00\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/transactions/operation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								"operation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "transfer",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"type\": \"TRANSFER\",\r\n    \"idClient\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"idAccountOrigin\" : \"00846b48-e55c-4380-bf89-d116181bc207\",\r\n    \"idAccountDestination\" : \"59cba7d3-19c7-4405-b35e-e682f7f9e6f6\",\r\n    \"amount\" : 7500.00\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/transactions/operation",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								"operation"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getAll Transaction",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/transactions/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "getOne Transaction",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8888/transactions/a5b7ad29-6db7-4704-9e6d-774bef823e99",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"transactions",
-								"a5b7ad29-6db7-4704-9e6d-774bef823e99"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "User",
-			"item": [
-				{
-					"name": "login",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\" : \"semper\",\r\n    \"password\" : \"123\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/user/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"user",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "createUser",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"email\" : \"saraza@gmail\",\r\n    \"username\" : \"evincere\",\r\n    \"password\" : \"1234\",\r\n    \"roles\" : [\"USER\"]\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8888/user/createUser",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8888",
-							"path": [
-								"user",
-								"createUser"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		}
-	]
+  "info": {
+    "_postman_id": "e980bca3-8e07-47fd-b1a9-900f6a0c2225",
+    "name": "Mini-Bank-BBVA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "18095139"
+  },
+  "item": [
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "create Client",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"lastName\": \"SEIS\",\r\n    \"firstName\": \"CLIENTE\",\r\n    \"email\": \"cliente.seis@gmail.com\",\r\n    \"phone\": \"5548484656\",\r\n    \"address\": \"otra direccion\",\r\n   \"userId\" : \"e3cb4256-427b-40ff-bb9d-bb9fc46f292a\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/client/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll Client",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW1wZXIiLCJpYXQiOjE2ODcyNjc2ODUsImV4cCI6MTY4NzM1NDA4NX0.3-reCMLcO5BgzpRhGpLItyv-rg8mX3H72FPcJ7ShmKw",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/client/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOne Client by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/client/2fa8a8e2-e713-4f36-8a0b-431cbec98266",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                "2fa8a8e2-e713-4f36-8a0b-431cbec98266"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update Client",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"CLIENTE\",\r\n    \"lastName\": \"UNO\",\r\n    \"email\": \"cliente.uno@gmail.com\",\r\n    \"phone\": \"478494658\",\r\n    \"address\": \"otra direccion\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/client/883ccd1a-7076-4b85-86f0-790e1a9ebf4c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                "883ccd1a-7076-4b85-86f0-790e1a9ebf4c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "softDelete Client",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/client/b19930cc-3eb2-478b-a2c4-c1fdc01706e8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                "b19930cc-3eb2-478b-a2c4-c1fdc01706e8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/client/restore/b19930cc-3eb2-478b-a2c4-c1fdc01706e8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "client",
+                "restore",
+                "b19930cc-3eb2-478b-a2c4-c1fdc01706e8"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Account",
+      "item": [
+        {
+          "name": "create Account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"holderId\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"currency\" : \"ARS\",\r\n    \"secondHolderId\" : \"b19930cc-3eb2-478b-a2c4-c1fdc01706e8\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/account/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "account",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "add Coholder",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"holderId\" : \"b19930cc-3eb2-478b-a2c4-c1fdc01706e8\",\r\n    \"accountId\" : \"59cba7d3-19c7-4405-b35e-e682f7f9e6f6\",    \r\n    \"currency\" : \"ARS\",\r\n    \"secondHolderId\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/account/coholder",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "account",
+                "coholder"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOne account",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/account/15c67f5a-b352-4e22-8343-e70a8f11f677",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "account",
+                "15c67f5a-b352-4e22-8343-e70a8f11f677"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll accounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/account/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "account",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "block Account",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/account/00846b48-e55c-4380-bf89-d116181bc207",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "account",
+                "00846b48-e55c-4380-bf89-d116181bc207"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transaction",
+      "item": [
+        {
+          "name": "create transaction validation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"DEPOSITa\",\r\n    \"idClient\" : \"eeb55a99-d245-4370-826d-d6e41f800e2e\",\r\n    \"idAccountOrigin\" : \"\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : -100.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/transactions/operation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                "operation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deposit",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"DEPOSIT\",\r\n    \"idClient\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"idAccountOrigin\" : \"00846b48-e55c-4380-bf89-d116181bc207\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : 30000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/transactions/operation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                "operation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "withdraw",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"WITHDRAW\",\r\n    \"idClient\" : \"8d636447-91c5-4e65-8b12-89b6fb48a5e7\",\r\n    \"idAccountOrigin\" : \"b3693118-a141-4129-9982-abe0a01187ca\",\r\n    \"idAccountDestination\" : \"\",\r\n    \"amount\" : 10000.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/transactions/operation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                "operation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "transfer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"TRANSFER\",\r\n    \"idClient\" : \"2fa8a8e2-e713-4f36-8a0b-431cbec98266\",\r\n    \"idAccountOrigin\" : \"00846b48-e55c-4380-bf89-d116181bc207\",\r\n    \"idAccountDestination\" : \"59cba7d3-19c7-4405-b35e-e682f7f9e6f6\",\r\n    \"amount\" : 7500.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/transactions/operation",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                "operation"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getAll Transaction",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/transactions/",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getOne Transaction",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8888/transactions/a5b7ad29-6db7-4704-9e6d-774bef823e99",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "transactions",
+                "a5b7ad29-6db7-4704-9e6d-774bef823e99"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "login",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\" : \"semper\",\r\n    \"password\" : \"123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/user/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "user",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "createUser",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\" : \"saraza@gmail\",\r\n    \"username\" : \"evincere\",\r\n    \"password\" : \"1234\",\r\n    \"roles\" : [\"USER\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8888/user/createUser",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8888",
+              "path": [
+                "user",
+                "createUser"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
 }

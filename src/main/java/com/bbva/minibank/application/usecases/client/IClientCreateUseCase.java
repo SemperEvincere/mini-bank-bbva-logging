@@ -6,6 +6,6 @@ import com.bbva.minibank.presentation.request.client.ClientCreateRequest;
 import jakarta.validation.Valid;
 
 public interface IClientCreateUseCase {
-
-  Client create(@Valid ClientCreateRequest request, UserEntity userEntity);
+	
+	Client create(@Valid ClientCreateRequest request, UserEntity userEntity);
 }

@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.UUID;
 
 public interface IAccountFindUseCase {
-
-  Account findByAccountNumber(UUID accountNumber);
-
-  List<Account> findAll();
+	
+	Account findByAccountNumber(UUID accountNumber);
+	
+	List<Account> findAll();
 }

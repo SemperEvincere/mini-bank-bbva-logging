@@ -2,12 +2,10 @@ package com.bbva.minibank.presentation.response.transaction;
 
 import com.bbva.minibank.domain.models.enums.TransactionTypeEnum;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

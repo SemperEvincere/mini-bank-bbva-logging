@@ -7,16 +7,18 @@ import com.bbva.minibank.presentation.response.transaction.TransactionDepositRes
 import com.bbva.minibank.presentation.response.transaction.TransactionResponse;
 import com.bbva.minibank.presentation.response.transaction.TransactionTransferResponse;
 import com.bbva.minibank.presentation.response.transaction.TransactionWithdrawalResponse;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Component
+@Log4j2
 public class TransactionPresentationMapper {
 	
 	public TransactionDepositResponse toDepositResponse(Transaction transaction,
 	                                                    Client clientSaved) {
+		log.info("Transaction: {}", transaction);
 		return TransactionDepositResponse.builder()
 		                                 .id(transaction.getId()
 		                                                .toString())
@@ -37,6 +39,7 @@ public class TransactionPresentationMapper {
 	
 	public TransactionWithdrawalResponse toWithdrawalResponse(Transaction withdraw,
 	                                                          Client clientSaved) {
+		log.info("Transaction: {}", withdraw);
 		return TransactionWithdrawalResponse.builder()
 		                                    .id(withdraw.getId()
 		                                                .toString())
@@ -55,6 +58,7 @@ public class TransactionPresentationMapper {
 	
 	public TransactionTransferResponse toTransferResponse(Transaction transfer,
 	                                                      Client clientSaved) {
+		log.info("Transaction: {}", transfer);
 		return TransactionTransferResponse.builder()
 		                                  .id(transfer.getId()
 		                                              .toString())
@@ -74,6 +78,7 @@ public class TransactionPresentationMapper {
 	}
 	
 	public TransactionResponse toResponse(Transaction transaction) {
+		log.info("Transaction: {}", transaction);
 		return TransactionResponse.builder()
 		                          .id(UUID.fromString(transaction.getId()
 		                                                         .toString()))

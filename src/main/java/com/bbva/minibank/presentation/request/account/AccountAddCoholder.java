@@ -9,9 +9,9 @@ import java.util.UUID;
 @Builder
 @Getter
 public class AccountAddCoholder {
-
-    private UUID holderId;
-    private UUID accountId;
-    private CurrencyEnum currency;
-    private UUID secondHolderId;
+	
+	private UUID holderId;
+	private UUID accountId;
+	private CurrencyEnum currency;
+	private UUID secondHolderId;
 }

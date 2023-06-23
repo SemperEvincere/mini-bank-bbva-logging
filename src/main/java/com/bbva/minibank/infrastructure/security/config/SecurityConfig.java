@@ -1,11 +1,10 @@
 package com.bbva.minibank.infrastructure.security.config;
 
-import com.bbva.minibank.application.services.UserDetailsServiceImpl;
 import com.bbva.minibank.infrastructure.security.filters.JwtAuthenticationFilter;
 import com.bbva.minibank.infrastructure.security.filters.JwtAuthorizationFilter;
 import com.bbva.minibank.infrastructure.security.utils.JwtUtils;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,6 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+@Log4j2
 public class SecurityConfig {
 	
 	private final JwtUtils jwtUtils;
@@ -32,11 +32,13 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity,
 	                                        AuthenticationManager authenticationManager) throws Exception {
-		
+		log.info("Configuring security filter chain");
 		JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
+		log.info("Configuring authentication manager");
 		jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
+		log.info("Configuring authentication filter");
 		jwtAuthenticationFilter.setFilterProcessesUrl("/user/login");
-		
+		log.info("Configuring authorization filter");
 		return httpSecurity
 				       .csrf(AbstractHttpConfigurer::disable)
 				       .authorizeHttpRequests(auth -> {
@@ -46,7 +48,7 @@ public class SecurityConfig {
 					           .hasRole("ADMIN");
 					       auth.requestMatchers("/account/**")
 					           .hasRole("ADMIN");
-								 auth.requestMatchers("/transactions/**")
+					       auth.requestMatchers("/transactions/**")
 					           .hasRole("USER");
 					       auth.anyRequest()
 					           .authenticated();
@@ -57,17 +59,20 @@ public class SecurityConfig {
 				       .addFilter(jwtAuthenticationFilter)
 				       .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
 				       .build();
+		
 	}
 	
 	
 	@Bean
 	PasswordEncoder passwordEncoder() {
+		log.info("Configuring password encoder");
 		return new BCryptPasswordEncoder();
 	}
 	
 	@Bean
 	AuthenticationManager authenticationManager(HttpSecurity httpSecurity,
 	                                            PasswordEncoder passwordEncoder) throws Exception {
+		log.info("Configuring authentication manager");
 		return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class)
 		                   .userDetailsService(userDetailsService)
 		                   .passwordEncoder(passwordEncoder)

@@ -8,11 +8,11 @@ import lombok.Setter;
 @Setter
 @Builder
 public class TransactionWithdrawalResponse {
-
-  private String id;
-  private String type;
-  private String amountExtracted;
-  private String accountNumberFrom;
-  private String clientFullName;
-  private String createdAt;
+	
+	private String id;
+	private String type;
+	private String amountExtracted;
+	private String accountNumberFrom;
+	private String clientFullName;
+	private String createdAt;
 }

@@ -1,6 +1,5 @@
 package com.bbva.minibank.application.usecases.transaction;
 
-import com.bbva.minibank.domain.models.Account;
 import com.bbva.minibank.domain.models.Transaction;
 
 import java.util.List;

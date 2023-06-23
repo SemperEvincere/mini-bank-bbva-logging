@@ -1,0 +1,29 @@
+<Configuration>
+    <Appenders>
+        <File name="FileDebug" fileName="logs/myapp-debug.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Filters>
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </File>
+        <File name="FileInfo" fileName="logs/myapp-info.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </File>
+        <File name="FileError" fileName="logs/myapp-error.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </File>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="FileDebug" level="DEBUG" />
+            <AppenderRef ref="FileInfo" level="INFO" />
+            <AppenderRef ref="FileError" level="ERROR" />
+        </Root>
+    </Loggers>
+</Configuration>

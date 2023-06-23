@@ -1,6 +1,5 @@
 package com.bbva.minibank.infrastructure.entities;
 
-import com.bbva.minibank.infrastructure.mappers.ClientEntityMapper;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -9,7 +8,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Set;
 import java.util.UUID;
@@ -21,7 +19,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "users")
 public class UserEntity {
-
+	
 	@Id
 	@GeneratedValue(generator = "uuid2")
 	UUID id;

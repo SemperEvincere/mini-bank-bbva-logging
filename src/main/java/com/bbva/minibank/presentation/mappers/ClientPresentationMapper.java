@@ -6,6 +6,7 @@ import com.bbva.minibank.presentation.request.client.ClientCreateRequest;
 import com.bbva.minibank.presentation.response.account.AccountDetailsResponse;
 import com.bbva.minibank.presentation.response.client.ClientAllDataResponse;
 import com.bbva.minibank.presentation.response.client.ClientResponse;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,9 +14,11 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
+@Log4j2
 public class ClientPresentationMapper {
 	
 	public ClientResponse domainToResponse(Client client) {
+		log.info("Client: {}", client);
 		return ClientResponse
 				       .builder()
 				       .id(client.getId())
@@ -31,6 +34,7 @@ public class ClientPresentationMapper {
 	}
 	
 	public Client requestToDomain(ClientCreateRequest request, UserEntity userEntity) {
+		log.info("Client request: {}", request);
 		return Client.builder()
 		             .id(UUID.randomUUID())
 		             .firstName(request.getFirstName())
@@ -45,7 +49,7 @@ public class ClientPresentationMapper {
 	
 	public ClientAllDataResponse domainToAllDataResponse(Client client,
 	                                                     List<AccountDetailsResponse> accountResponse) {
-		
+		log.info("Client: {}", client);
 		return ClientAllDataResponse
 				       .builder()
 				       .id(client.getId())
@@ -61,12 +65,14 @@ public class ClientPresentationMapper {
 	}
 	
 	public Client updateDomainFromRequest(Client client, ClientCreateRequest request, UUID id) {
+		log.info("Client request: {}", request);
 		client.setId(id);
 		client.setFirstName(request.getFirstName());
 		client.setLastName(request.getLastName());
 		client.setEmail(request.getEmail());
 		client.setPhone(request.getPhone());
 		client.setAddress(request.getAddress());
+		log.info("Client: {}", client);
 		return client;
 	}
 	
